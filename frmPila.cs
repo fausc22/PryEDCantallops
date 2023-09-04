@@ -7,24 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace PryEDCantallops
 {
-    public partial class frmCola : Form
+    public partial class frmPila : Form
     {
-        public frmCola()
+        public frmPila()
         {
             InitializeComponent();
         }
 
-        private void frmCola_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        clsCola FilaDePersonas = new clsCola();
-
+        clsPila FilaDePersonas = new clsPila();
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -33,13 +26,12 @@ namespace PryEDCantallops
             ObjNodo.Nombre = txtNombre.Text;
             ObjNodo.Tramite = txtTramite.Text;
             FilaDePersonas.Agregar(ObjNodo);
-            FilaDePersonas.Recorrer(dgvCola);
-            FilaDePersonas.Recorrer(lstLista);
+            FilaDePersonas.Recorrer(dgvPila);
+            FilaDePersonas.Recorrer(lstPila);
             FilaDePersonas.Recorrer();
             txtCodigo.Text = "";
             txtNombre.Text = "";
             txtTramite.Text = "";
-            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -50,8 +42,8 @@ namespace PryEDCantallops
                 lblNombre.Text = FilaDePersonas.Primero.Nombre;
                 lblTramite.Text = FilaDePersonas.Primero.Tramite;
                 FilaDePersonas.Eliminar();
-                FilaDePersonas.Recorrer(dgvCola);
-                FilaDePersonas.Recorrer(lstLista);
+                FilaDePersonas.Recorrer(dgvPila);
+                FilaDePersonas.Recorrer(lstPila);
                 FilaDePersonas.Recorrer();
             }
             else

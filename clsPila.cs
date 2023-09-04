@@ -8,45 +8,28 @@ using System.Windows.Forms;
 
 namespace PryEDCantallops
 {
-    class clsCola
+    class clsPila
     {
         private clsNodo pri;
-        private clsNodo ult;
 
-        public clsNodo Primero 
-        { 
-            get { return pri; }
-            set {  pri = value; } 
-        }
-
-        public clsNodo Ultimo
+        public clsNodo Primero
         {
-            get { return ult; } 
-            set {  ult = value; }
+            get { return pri; } 
+            set { pri = value; }
         }
-
+        
         public void Agregar(clsNodo Nuevo)
         {
-            if (Primero == null)
+            if (Primero != null)
             {
-                Primero = Nuevo;
-                Ultimo = Nuevo;
+                Nuevo.Siguiente = Primero;
             }
-            else
-            {
-                Ultimo.Siguiente = Nuevo;
-                Ultimo = Nuevo;
-            }
+            Primero = Nuevo;
         }
 
         public void Eliminar()
         {
-            if (Primero == Ultimo)
-            {
-                Primero = null;
-                Ultimo = null;
-            }
-            else
+            if (Primero != null)
             {
                 Primero = Primero.Siguiente;
             }
@@ -91,7 +74,6 @@ namespace PryEDCantallops
             }
             AD.Close();
         }
-
 
     }
 }

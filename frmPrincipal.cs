@@ -33,5 +33,11 @@ namespace PryEDCantallops
             frmDatosDesarrollador f = new frmDatosDesarrollador();
             f.ShowDialog();
         }
+
+        private void pilaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPila p = new frmPila();
+            p.ShowDialog();
+        }
     }
 }
