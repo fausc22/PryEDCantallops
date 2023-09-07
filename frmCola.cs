@@ -39,7 +39,8 @@ namespace PryEDCantallops
             txtCodigo.Text = "";
             txtNombre.Text = "";
             txtTramite.Text = "";
-            
+            btnAgregar.Enabled = false;
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -59,6 +60,23 @@ namespace PryEDCantallops
                 lblCodigo.Text = "";
                 lblNombre.Text = "";
                 lblTramite.Text = "";
+            }
+            
+        }
+
+        private void txtTramite_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text != null && txtNombre.Text != null && txtTramite.Text != null)
+            {
+                btnAgregar.Enabled = true;
+            }
+        }
+
+        private void txtTramite_TextChanged_1(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text != null && txtNombre.Text != null && txtTramite.Text != null)
+            {
+                btnAgregar.Enabled = true;
             }
         }
     }

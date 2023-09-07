@@ -85,7 +85,7 @@ namespace PryEDCantallops
                 AD.WriteLine(aux.Codigo);
                 AD.WriteLine(";");
                 AD.WriteLine(aux.Nombre);
-                AD.WriteLine("");
+                AD.WriteLine(";");
                 AD.Write(aux.Tramite);
                 aux = aux.Siguiente;
             }

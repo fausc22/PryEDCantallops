@@ -19,7 +19,8 @@ namespace PryEDCantallops
 
         private void listaSimpleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmListaSimple fl = new frmListaSimple();
+            fl.ShowDialog();
         }
 
         private void colaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,6 +39,12 @@ namespace PryEDCantallops
         {
             frmPila p = new frmPila();
             p.ShowDialog();
+        }
+
+        private void listaDobleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListaDoble fd = new frmListaDoble();
+            fd.ShowDialog();
         }
     }
 }

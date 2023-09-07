@@ -215,6 +215,7 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.Enabled = false;
             this.btnAgregar.Location = new System.Drawing.Point(21, 130);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(151, 36);
@@ -229,6 +230,7 @@
             this.txtTramite.Name = "txtTramite";
             this.txtTramite.Size = new System.Drawing.Size(100, 20);
             this.txtTramite.TabIndex = 5;
+            this.txtTramite.TextChanged += new System.EventHandler(this.txtTramite_TextChanged);
             // 
             // txtNombre
             // 
@@ -285,6 +287,7 @@
             this.Name = "frmPila";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estructura de Datos Lineal - Pila";
+            this.Load += new System.EventHandler(this.frmPila_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPila)).EndInit();
             this.gpbGrilla.ResumeLayout(false);
             this.gpbEliminar.ResumeLayout(false);

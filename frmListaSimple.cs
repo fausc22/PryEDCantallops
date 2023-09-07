@@ -10,14 +10,18 @@ using System.Windows.Forms;
 
 namespace PryEDCantallops
 {
-    public partial class frmPila : Form
+    public partial class frmListaSimple : Form
     {
-        public frmPila()
+        public frmListaSimple()
         {
             InitializeComponent();
         }
+        clsListaSimple FilaDePersonas = new clsListaSimple();
 
-        clsPila FilaDePersonas = new clsPila();
+        private void frmListaSimple_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -26,10 +30,10 @@ namespace PryEDCantallops
             ObjNodo.Nombre = txtNombre.Text;
             ObjNodo.Tramite = txtTramite.Text;
             FilaDePersonas.Agregar(ObjNodo);
-            FilaDePersonas.Recorrer(dgvPila);
-            FilaDePersonas.Recorrer(lstPila);
+            FilaDePersonas.Recorrer(dgvLista);
+            FilaDePersonas.Recorrer(lstLista);
             FilaDePersonas.Recorrer();
-            
+            FilaDePersonas.Recorrer(cmbEliminar);
             txtCodigo.Text = "";
             txtNombre.Text = "";
             txtTramite.Text = "";
@@ -40,34 +44,31 @@ namespace PryEDCantallops
         {
             if (FilaDePersonas.Primero != null)
             {
-                lblCodigo.Text = FilaDePersonas.Primero.Codigo.ToString();
-                lblNombre.Text = FilaDePersonas.Primero.Nombre;
-                lblTramite.Text = FilaDePersonas.Primero.Tramite;
-                FilaDePersonas.Eliminar();
-                FilaDePersonas.Recorrer(dgvPila);
-                FilaDePersonas.Recorrer(lstPila);
+                Int32 x = Convert.ToInt32(cmbEliminar.Text);
+                FilaDePersonas.Eliminar(x);
+                FilaDePersonas.Recorrer(dgvLista);
+                FilaDePersonas.Recorrer(lstLista);
+                FilaDePersonas.Recorrer(cmbEliminar);
                 FilaDePersonas.Recorrer();
             }
             else
             {
-                lblCodigo.Text = "";
-                lblNombre.Text = "";
-                lblTramite.Text = "";
+                MessageBox.Show("La lista está vacía");
             }
+            btnEliminar.Enabled = false;
+            
         }
 
-        
-
-        private void frmPila_Load(object sender, EventArgs e)
+        private void cmbEliminar_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            btnEliminar.Enabled = true;
         }
 
         private void txtTramite_TextChanged(object sender, EventArgs e)
         {
-            if (txtCodigo.Text != null && txtNombre.Text != null && txtTramite.Text != null)
+            if (txtCodigo.Text != null  && txtNombre.Text != null && txtTramite.Text != null)
             {
-                btnAgregar.Enabled = true;
+                btnAgregar.Enabled = true;  
             }
         }
     }

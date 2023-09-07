@@ -60,7 +60,7 @@ namespace PryEDCantallops
         public void Recorrer()
         {
             clsNodo aux = Primero;
-            StreamWriter AD = new StreamWriter("Cola.csv", false);
+            StreamWriter AD = new StreamWriter("Pila.csv", false);
             AD.WriteLine("Lista de espera\n");
             AD.WriteLine("Codigo;Nombre;Tramite\n");
             while (aux != null)
@@ -68,7 +68,7 @@ namespace PryEDCantallops
                 AD.WriteLine(aux.Codigo);
                 AD.WriteLine(";");
                 AD.WriteLine(aux.Nombre);
-                AD.WriteLine("");
+                AD.WriteLine(";");
                 AD.Write(aux.Tramite);
                 aux = aux.Siguiente;
             }
