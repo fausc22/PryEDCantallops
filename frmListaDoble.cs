@@ -88,5 +88,10 @@ namespace PryEDCantallops
                 btnEliminar.Enabled = true;
             }
         }
+
+        private void frmListaDoble_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

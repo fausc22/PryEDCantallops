@@ -1,6 +1,6 @@
 ﻿namespace PryEDCantallops
 {
-    partial class frmListaDoble
+    partial class frmArbolBinario
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,6 @@
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tramite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lstLista = new System.Windows.Forms.ListBox();
             this.gpbEliminar = new System.Windows.Forms.GroupBox();
             this.cmbEliminar = new System.Windows.Forms.ComboBox();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -46,30 +45,31 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.gpbLista = new System.Windows.Forms.GroupBox();
-            this.optDescendente = new System.Windows.Forms.RadioButton();
-            this.optAscendente = new System.Windows.Forms.RadioButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnEquilibrar = new System.Windows.Forms.Button();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.optIn = new System.Windows.Forms.RadioButton();
+            this.optPost = new System.Windows.Forms.RadioButton();
+            this.optPre = new System.Windows.Forms.RadioButton();
             this.gpbGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.gpbEliminar.SuspendLayout();
             this.gpbNuevo.SuspendLayout();
-            this.gpbLista.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gpbGrilla
             // 
+            this.gpbGrilla.Controls.Add(this.optPre);
+            this.gpbGrilla.Controls.Add(this.optPost);
+            this.gpbGrilla.Controls.Add(this.optIn);
             this.gpbGrilla.Controls.Add(this.dgvLista);
-            this.gpbGrilla.Controls.Add(this.lstLista);
-            this.gpbGrilla.Location = new System.Drawing.Point(28, 271);
+            this.gpbGrilla.Location = new System.Drawing.Point(13, 266);
             this.gpbGrilla.Margin = new System.Windows.Forms.Padding(4);
             this.gpbGrilla.Name = "gpbGrilla";
             this.gpbGrilla.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbGrilla.Size = new System.Drawing.Size(844, 268);
-            this.gpbGrilla.TabIndex = 11;
+            this.gpbGrilla.Size = new System.Drawing.Size(809, 268);
+            this.gpbGrilla.TabIndex = 14;
             this.gpbGrilla.TabStop = false;
-            this.gpbGrilla.Text = "Listado en una Lista y una Grilla";
+            this.gpbGrilla.Text = "Listado del arbol";
             // 
             // dgvLista
             // 
@@ -78,7 +78,7 @@
             this.Codigo,
             this.Nombre,
             this.Tramite});
-            this.dgvLista.Location = new System.Drawing.Point(289, 23);
+            this.dgvLista.Location = new System.Drawing.Point(254, 23);
             this.dgvLista.Margin = new System.Windows.Forms.Padding(4);
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.RowHeadersWidth = 51;
@@ -106,27 +106,17 @@
             this.Tramite.Name = "Tramite";
             this.Tramite.Width = 125;
             // 
-            // lstLista
-            // 
-            this.lstLista.FormattingEnabled = true;
-            this.lstLista.ItemHeight = 16;
-            this.lstLista.Location = new System.Drawing.Point(8, 23);
-            this.lstLista.Margin = new System.Windows.Forms.Padding(4);
-            this.lstLista.Name = "lstLista";
-            this.lstLista.Size = new System.Drawing.Size(257, 228);
-            this.lstLista.TabIndex = 4;
-            // 
             // gpbEliminar
             // 
             this.gpbEliminar.Controls.Add(this.cmbEliminar);
             this.gpbEliminar.Controls.Add(this.btnEliminar);
             this.gpbEliminar.Controls.Add(this.label6);
-            this.gpbEliminar.Location = new System.Drawing.Point(605, 15);
+            this.gpbEliminar.Location = new System.Drawing.Point(555, 19);
             this.gpbEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.gpbEliminar.Name = "gpbEliminar";
             this.gpbEliminar.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbEliminar.Size = new System.Drawing.Size(267, 132);
-            this.gpbEliminar.TabIndex = 10;
+            this.gpbEliminar.Size = new System.Drawing.Size(267, 142);
+            this.gpbEliminar.TabIndex = 13;
             this.gpbEliminar.TabStop = false;
             this.gpbEliminar.Text = "Elemento a eliminar";
             // 
@@ -134,29 +124,27 @@
             // 
             this.cmbEliminar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEliminar.FormattingEnabled = true;
-            this.cmbEliminar.Location = new System.Drawing.Point(81, 34);
+            this.cmbEliminar.Location = new System.Drawing.Point(69, 32);
             this.cmbEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.cmbEliminar.Name = "cmbEliminar";
             this.cmbEliminar.Size = new System.Drawing.Size(160, 24);
             this.cmbEliminar.TabIndex = 7;
-            this.cmbEliminar.SelectedIndexChanged += new System.EventHandler(this.cmbEliminar_SelectedIndexChanged);
             // 
             // btnEliminar
             // 
             this.btnEliminar.Enabled = false;
-            this.btnEliminar.Location = new System.Drawing.Point(40, 74);
+            this.btnEliminar.Location = new System.Drawing.Point(28, 82);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(201, 44);
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 38);
+            this.label6.Location = new System.Drawing.Point(10, 35);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 16);
@@ -172,12 +160,12 @@
             this.gpbNuevo.Controls.Add(this.label3);
             this.gpbNuevo.Controls.Add(this.label2);
             this.gpbNuevo.Controls.Add(this.label1);
-            this.gpbNuevo.Location = new System.Drawing.Point(317, 15);
+            this.gpbNuevo.Location = new System.Drawing.Point(259, 13);
             this.gpbNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.gpbNuevo.Name = "gpbNuevo";
             this.gpbNuevo.Padding = new System.Windows.Forms.Padding(4);
             this.gpbNuevo.Size = new System.Drawing.Size(267, 238);
-            this.gpbNuevo.TabIndex = 9;
+            this.gpbNuevo.TabIndex = 12;
             this.gpbNuevo.TabStop = false;
             this.gpbNuevo.Text = "Nuevo Elemento";
             // 
@@ -191,7 +179,6 @@
             this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtTramite
             // 
@@ -200,7 +187,6 @@
             this.txtTramite.Name = "txtTramite";
             this.txtTramite.Size = new System.Drawing.Size(132, 22);
             this.txtTramite.TabIndex = 5;
-            this.txtTramite.TextChanged += new System.EventHandler(this.txtTramite_TextChanged);
             // 
             // txtNombre
             // 
@@ -248,81 +234,77 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
-            // gpbLista
+            // btnEquilibrar
             // 
-            this.gpbLista.Controls.Add(this.optDescendente);
-            this.gpbLista.Controls.Add(this.optAscendente);
-            this.gpbLista.Location = new System.Drawing.Point(605, 154);
-            this.gpbLista.Margin = new System.Windows.Forms.Padding(4);
-            this.gpbLista.Name = "gpbLista";
-            this.gpbLista.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbLista.Size = new System.Drawing.Size(267, 98);
-            this.gpbLista.TabIndex = 12;
-            this.gpbLista.TabStop = false;
-            this.gpbLista.Text = "Listar Datos";
+            this.btnEquilibrar.Enabled = false;
+            this.btnEquilibrar.Location = new System.Drawing.Point(555, 192);
+            this.btnEquilibrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEquilibrar.Name = "btnEquilibrar";
+            this.btnEquilibrar.Size = new System.Drawing.Size(267, 44);
+            this.btnEquilibrar.TabIndex = 15;
+            this.btnEquilibrar.Text = "Equilibrar";
+            this.btnEquilibrar.UseVisualStyleBackColor = true;
             // 
-            // optDescendente
+            // treeView1
             // 
-            this.optDescendente.AutoSize = true;
-            this.optDescendente.Location = new System.Drawing.Point(12, 62);
-            this.optDescendente.Margin = new System.Windows.Forms.Padding(4);
-            this.optDescendente.Name = "optDescendente";
-            this.optDescendente.Size = new System.Drawing.Size(109, 20);
-            this.optDescendente.TabIndex = 1;
-            this.optDescendente.TabStop = true;
-            this.optDescendente.Text = "Descendente";
-            this.optDescendente.UseVisualStyleBackColor = true;
-            this.optDescendente.CheckedChanged += new System.EventHandler(this.optDescendente_CheckedChanged);
+            this.treeView1.Location = new System.Drawing.Point(12, 19);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(236, 232);
+            this.treeView1.TabIndex = 16;
             // 
-            // optAscendente
+            // optIn
             // 
-            this.optAscendente.AutoSize = true;
-            this.optAscendente.Location = new System.Drawing.Point(12, 33);
-            this.optAscendente.Margin = new System.Windows.Forms.Padding(4);
-            this.optAscendente.Name = "optAscendente";
-            this.optAscendente.Size = new System.Drawing.Size(100, 20);
-            this.optAscendente.TabIndex = 0;
-            this.optAscendente.TabStop = true;
-            this.optAscendente.Text = "Ascendente";
-            this.optAscendente.UseVisualStyleBackColor = true;
-            this.optAscendente.CheckedChanged += new System.EventHandler(this.optAscendente_CheckedChanged);
+            this.optIn.AutoSize = true;
+            this.optIn.Location = new System.Drawing.Point(15, 53);
+            this.optIn.Name = "optIn";
+            this.optIn.Size = new System.Drawing.Size(79, 20);
+            this.optIn.TabIndex = 6;
+            this.optIn.TabStop = true;
+            this.optIn.Text = "In-Orden";
+            this.optIn.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // optPost
             // 
-            this.pictureBox1.Image = global::PryEDCantallops.Properties.Resources.listadoble;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(293, 238);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.optPost.AutoSize = true;
+            this.optPost.Location = new System.Drawing.Point(15, 164);
+            this.optPost.Name = "optPost";
+            this.optPost.Size = new System.Drawing.Size(96, 20);
+            this.optPost.TabIndex = 7;
+            this.optPost.TabStop = true;
+            this.optPost.Text = "Post-Orden";
+            this.optPost.UseVisualStyleBackColor = true;
             // 
-            // frmListaDoble
+            // optPre
+            // 
+            this.optPre.AutoSize = true;
+            this.optPre.Location = new System.Drawing.Point(15, 105);
+            this.optPre.Name = "optPre";
+            this.optPre.Size = new System.Drawing.Size(90, 20);
+            this.optPre.TabIndex = 8;
+            this.optPre.TabStop = true;
+            this.optPre.Text = "Pre-Orden";
+            this.optPre.UseVisualStyleBackColor = true;
+            // 
+            // frmArbolBinario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 554);
-            this.Controls.Add(this.gpbLista);
+            this.ClientSize = new System.Drawing.Size(846, 552);
+            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.btnEquilibrar);
             this.Controls.Add(this.gpbGrilla);
             this.Controls.Add(this.gpbEliminar);
             this.Controls.Add(this.gpbNuevo);
-            this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmListaDoble";
+            this.Name = "frmArbolBinario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lista Doblemente Enlazada";
-            this.Load += new System.EventHandler(this.frmListaDoble_Load);
+            this.Text = "Estructuras Ramificadas - Arbol Binario";
             this.gpbGrilla.ResumeLayout(false);
+            this.gpbGrilla.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.gpbEliminar.ResumeLayout(false);
             this.gpbEliminar.PerformLayout();
             this.gpbNuevo.ResumeLayout(false);
             this.gpbNuevo.PerformLayout();
-            this.gpbLista.ResumeLayout(false);
-            this.gpbLista.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,7 +316,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tramite;
-        private System.Windows.Forms.ListBox lstLista;
         private System.Windows.Forms.GroupBox gpbEliminar;
         private System.Windows.Forms.ComboBox cmbEliminar;
         private System.Windows.Forms.Button btnEliminar;
@@ -347,9 +328,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox gpbLista;
-        private System.Windows.Forms.RadioButton optDescendente;
-        private System.Windows.Forms.RadioButton optAscendente;
+        private System.Windows.Forms.Button btnEquilibrar;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.RadioButton optPre;
+        private System.Windows.Forms.RadioButton optPost;
+        private System.Windows.Forms.RadioButton optIn;
     }
 }
