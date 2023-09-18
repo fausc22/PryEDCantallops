@@ -15,7 +15,9 @@ namespace PryEDCantallops
         private String tra;
         private clsNodo sig;
         private clsNodo ant;
+        
 
+        //propiedades
         public Int32 Codigo
         {
             get { return cod; }
@@ -41,6 +43,18 @@ namespace PryEDCantallops
         }
 
         public clsNodo Anterior
+        {
+            get { return ant; }
+            set { ant = value; }
+        }
+
+        public clsNodo Derecho
+        {
+            get { return sig; }
+            set { sig = value; }
+        }
+
+        public clsNodo Izquierdo
         {
             get { return ant; }
             set { ant = value; }
