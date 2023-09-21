@@ -27,7 +27,7 @@ namespace PryEDCantallops
             Persona.Tramite = txtTramite.Text;
 
             ObjArbol.Agregar(Persona);
-            ObjArbol.Recorrer(dgvLista);
+            ObjArbol.RecorrerIn(dgvLista);
 
             txtCodigo.Text = "";
             txtNombre.Text = "";
@@ -40,6 +40,52 @@ namespace PryEDCantallops
             if (txtCodigo.Text != null && txtNombre.Text != null && txtTramite.Text != null)
             {
                 btnAgregar.Enabled = true;
+            }
+        }
+
+        private void frmArbolBinario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void optIn_CheckedChanged(object sender, EventArgs e)
+        {
+            ObjArbol.RecorrerIn(dgvLista);
+        }
+
+        private void optPre_CheckedChanged(object sender, EventArgs e)
+        {
+            ObjArbol.RecorrerPre(dgvLista);
+        }
+
+        private void optPost_CheckedChanged(object sender, EventArgs e)
+        {
+            ObjArbol.RecorrerPost(dgvLista);
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            if (optIn.Checked)
+            {
+                ObjArbol.ExportarIn(dgvLista);
+            }
+            else
+            {
+                if (optPre.Checked)
+                {
+                    ObjArbol.ExportarPre(dgvLista);
+                }
+                else
+                {
+                    if (optPost.Checked)
+                    {
+                        ObjArbol.ExportarPost(dgvLista);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Seleccione una opcion de ordenamiento", "", MessageBoxButtons.OK); 
+                    }
+                }
             }
         }
     }

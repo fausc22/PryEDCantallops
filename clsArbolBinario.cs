@@ -61,18 +61,147 @@ namespace PryEDCantallops
             if (R.Derecho != null) InOrdenAsc(dgv, R.Derecho);
         }
 
-        public void Recorrer(DataGridView Grilla)
+        public void RecorrerIn(DataGridView Grilla)
         {
             Grilla.Rows.Clear();
             InOrdenAsc(Grilla, Raiz);
         }
 
-        private void InOrdenDesc(DataGridView dgv, clsNodo R)
+        private void PreOrdenAsc(DataGridView dgv, clsNodo R)
         {
-            if (R.Derecho != null) InOrdenDesc(dgv, R.Derecho);
-            dgv.Rows.Add(R.Codigo);
-            if (R.Izquierdo != null) InOrdenDesc(dgv, R.Izquierdo);
+            dgv.Rows.Add(R.Codigo, R.Nombre, R.Tramite);
+            if (R.Izquierdo != null) PreOrdenAsc(dgv, R.Izquierdo);
+            if (R.Derecho != null) PreOrdenAsc(dgv, R.Derecho);
+        }
+
+        public void RecorrerPre(DataGridView Grilla)
+        {
+            Grilla.Rows.Clear();
+            PreOrdenAsc(Grilla, Raiz);
+        }
+
+        private void PostOrdenAsc(DataGridView dgv, clsNodo R)
+        {
+            if (R.Izquierdo != null) PostOrdenAsc(dgv, R.Izquierdo);
+            if (R.Derecho != null) PostOrdenAsc(dgv, R.Derecho);
+            dgv.Rows.Add(R.Codigo, R.Nombre, R.Tramite);
+        }
+
+        public void RecorrerPost(DataGridView Grilla)
+        {
+            Grilla.Rows.Clear();
+            PostOrdenAsc(Grilla, Raiz);
+        }
+
+      
+        
+
+
+        public void ExportarIn(DataGridView Grilla)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter("arbolInOrden.txt", false))
+                {
+                    foreach (DataGridViewRow row in Grilla.Rows)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            // Escribe el valor de la celda en el archivo de texto
+                            writer.Write(cell.Value.ToString() + "\t");
+                        }
+                        writer.WriteLine(); // Salta a la siguiente línea
+                    }
+                }
+                MessageBox.Show("Datos guardados en el archivo de texto correctamente.");
+
+
+
+
+
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar los datos: " + ex.Message);
+            }
 
         }
+
+        public void ExportarPre(DataGridView Grilla)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter("arbolPreOrden.txt", false))
+                {
+                    foreach (DataGridViewRow row in Grilla.Rows)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            // Escribe el valor de la celda en el archivo de texto
+                            writer.Write(cell.Value.ToString() + "\t");
+                        }
+                        writer.WriteLine(); // Salta a la siguiente línea
+                    }
+                }
+                MessageBox.Show("Datos guardados en el archivo de texto correctamente.");
+
+
+
+
+
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar los datos: " + ex.Message);
+            }
+
+        }
+
+        public void ExportarPost(DataGridView Grilla)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter("arbolPostOrden.txt", false))
+                {
+                    foreach (DataGridViewRow row in Grilla.Rows)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            // Escribe el valor de la celda en el archivo de texto
+                            writer.Write(cell.Value.ToString() + "\t");
+                        }
+                        writer.WriteLine(); // Salta a la siguiente línea
+                    }
+                }
+                MessageBox.Show("Datos guardados en el archivo de texto correctamente.");
+
+
+
+
+
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar los datos: " + ex.Message);
+            }
+
+        }
+
+
     }
 }

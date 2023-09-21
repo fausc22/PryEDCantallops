@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnEquilibrar = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.gpbGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.gpbEliminar.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             // gpbGrilla
             // 
+            this.gpbGrilla.Controls.Add(this.btnExportar);
             this.gpbGrilla.Controls.Add(this.optPre);
             this.gpbGrilla.Controls.Add(this.optPost);
             this.gpbGrilla.Controls.Add(this.optIn);
@@ -72,7 +74,7 @@
             // optPre
             // 
             this.optPre.AutoSize = true;
-            this.optPre.Location = new System.Drawing.Point(11, 85);
+            this.optPre.Location = new System.Drawing.Point(11, 78);
             this.optPre.Margin = new System.Windows.Forms.Padding(2);
             this.optPre.Name = "optPre";
             this.optPre.Size = new System.Drawing.Size(73, 17);
@@ -80,11 +82,12 @@
             this.optPre.TabStop = true;
             this.optPre.Text = "Pre-Orden";
             this.optPre.UseVisualStyleBackColor = true;
+            this.optPre.CheckedChanged += new System.EventHandler(this.optPre_CheckedChanged);
             // 
             // optPost
             // 
             this.optPost.AutoSize = true;
-            this.optPost.Location = new System.Drawing.Point(11, 133);
+            this.optPost.Location = new System.Drawing.Point(11, 99);
             this.optPost.Margin = new System.Windows.Forms.Padding(2);
             this.optPost.Name = "optPost";
             this.optPost.Size = new System.Drawing.Size(78, 17);
@@ -92,11 +95,12 @@
             this.optPost.TabStop = true;
             this.optPost.Text = "Post-Orden";
             this.optPost.UseVisualStyleBackColor = true;
+            this.optPost.CheckedChanged += new System.EventHandler(this.optPost_CheckedChanged);
             // 
             // optIn
             // 
             this.optIn.AutoSize = true;
-            this.optIn.Location = new System.Drawing.Point(11, 43);
+            this.optIn.Location = new System.Drawing.Point(11, 57);
             this.optIn.Margin = new System.Windows.Forms.Padding(2);
             this.optIn.Name = "optIn";
             this.optIn.Size = new System.Drawing.Size(66, 17);
@@ -104,6 +108,7 @@
             this.optIn.TabStop = true;
             this.optIn.Text = "In-Orden";
             this.optIn.UseVisualStyleBackColor = true;
+            this.optIn.CheckedChanged += new System.EventHandler(this.optIn_CheckedChanged);
             // 
             // dgvLista
             // 
@@ -258,7 +263,7 @@
             // btnEquilibrar
             // 
             this.btnEquilibrar.Enabled = false;
-            this.btnEquilibrar.Location = new System.Drawing.Point(416, 156);
+            this.btnEquilibrar.Location = new System.Drawing.Point(416, 136);
             this.btnEquilibrar.Name = "btnEquilibrar";
             this.btnEquilibrar.Size = new System.Drawing.Size(200, 36);
             this.btnEquilibrar.TabIndex = 15;
@@ -273,6 +278,16 @@
             this.treeView1.Size = new System.Drawing.Size(178, 189);
             this.treeView1.TabIndex = 16;
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(11, 139);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(145, 36);
+            this.btnExportar.TabIndex = 17;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // frmArbolBinario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,7 +301,9 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmArbolBinario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Estructuras Ramificadas - Arbol Binario";
+            this.Text = "                     Estructura de datos no lineal - Arbol binario               " +
+    "                                                     ";
+            this.Load += new System.EventHandler(this.frmArbolBinario_Load);
             this.gpbGrilla.ResumeLayout(false);
             this.gpbGrilla.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
@@ -322,5 +339,6 @@
         private System.Windows.Forms.RadioButton optPre;
         private System.Windows.Forms.RadioButton optPost;
         private System.Windows.Forms.RadioButton optIn;
+        private System.Windows.Forms.Button btnExportar;
     }
 }
