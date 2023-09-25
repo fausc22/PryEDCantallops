@@ -28,6 +28,7 @@ namespace PryEDCantallops
 
             ObjArbol.Agregar(Persona);
             ObjArbol.RecorrerIn(dgvLista);
+            ObjArbol.Recorrer(treeView1);
 
             txtCodigo.Text = "";
             txtNombre.Text = "";

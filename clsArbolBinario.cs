@@ -19,6 +19,19 @@ namespace PryEDCantallops
             set { PrimerNodo = value; }
         }
 
+        public clsNodo BuscarCodigo(Int32 Cod)
+        {
+            clsNodo Aux = Raiz;
+            while (Aux != null)
+            {
+                if (Cod == Aux.Codigo) break;
+                if (Cod < Aux.Codigo) Aux = Aux.Izquierdo;
+                else Aux = Aux.Derecho;
+                
+            }
+            return Aux;
+        }
+
         public void Agregar(clsNodo Nvo)
         {
             Nvo.Izquierdo = null;
@@ -51,6 +64,52 @@ namespace PryEDCantallops
                 {
                     NodoPadre.Derecho = Nvo;
                 }
+            }
+        }
+
+
+        private clsNodo[] Vector = new clsNodo[100];
+        private int i;
+        public void Equilibrar()
+        {
+            i = 0;
+            GrabarVectorInOrden(Raiz);
+            Raiz = null;
+            EquilibrarArbol(0, i-1);
+
+        }
+
+        public void Eliminar(Int32 codigo)
+        {
+            i = 0;
+            GrabarVectorInOrden(Raiz);
+            Raiz = null;
+            EquilibrarArbol(0, i-1);
+        }
+
+
+
+        private void EquilibrarArbol(Int32 ini, Int32 fin)
+        {
+            Int32 m = (ini + fin) / 2;
+            if (ini <= fin)
+            {
+                Agregar(Vector[m]);
+                EquilibrarArbol(ini, m-1);
+                EquilibrarArbol(m + 1, fin);
+            }
+        }
+        private void GrabarVectorInOrden(clsNodo NodoPadre)
+        {
+            if (NodoPadre.Izquierdo != null)
+            {
+                GrabarVectorInOrden(NodoPadre.Izquierdo);
+            }
+            Vector[i] = NodoPadre;
+            i = i + 1;
+            if (NodoPadre.Derecho != null)
+            {
+                GrabarVectorInOrden(NodoPadre.Derecho);
             }
         }
 
@@ -93,7 +152,30 @@ namespace PryEDCantallops
             PostOrdenAsc(Grilla, Raiz);
         }
 
-      
+
+
+      public void Recorrer(TreeView tree)
+        {
+            tree.Nodes.Clear();
+            TreeNode NodoPadre = new TreeNode("Arbol");
+            tree.Nodes.Add(NodoPadre);
+            PreOrden(Raiz, NodoPadre);
+            tree.ExpandAll();
+        }
+
+        private void PreOrden(clsNodo R, TreeNode nodoTreeView)
+        {
+            TreeNode NodoPadre = new TreeNode(R.Codigo.ToString());
+            nodoTreeView.Nodes.Add(NodoPadre);
+            if (R.Izquierdo != null)
+            {
+                PreOrden(R.Izquierdo, NodoPadre);
+            }
+            if (R.Derecho != null)
+            {
+                PreOrden(R.Derecho, NodoPadre);
+            }
+        }
         
 
 
