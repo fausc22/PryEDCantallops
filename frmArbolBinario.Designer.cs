@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gpbGrilla = new System.Windows.Forms.GroupBox();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.optPre = new System.Windows.Forms.RadioButton();
             this.optPost = new System.Windows.Forms.RadioButton();
             this.optIn = new System.Windows.Forms.RadioButton();
@@ -50,7 +51,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnEquilibrar = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.btnExportar = new System.Windows.Forms.Button();
             this.gpbGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.gpbEliminar.SuspendLayout();
@@ -70,6 +70,16 @@
             this.gpbGrilla.TabIndex = 14;
             this.gpbGrilla.TabStop = false;
             this.gpbGrilla.Text = "Listado del arbol";
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(11, 139);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(145, 36);
+            this.btnExportar.TabIndex = 17;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // optPre
             // 
@@ -164,6 +174,7 @@
             this.cmbEliminar.Name = "cmbEliminar";
             this.cmbEliminar.Size = new System.Drawing.Size(121, 21);
             this.cmbEliminar.TabIndex = 7;
+            this.cmbEliminar.SelectedIndexChanged += new System.EventHandler(this.cmbEliminar_SelectedIndexChanged);
             // 
             // btnEliminar
             // 
@@ -174,6 +185,7 @@
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // label6
             // 
@@ -262,13 +274,13 @@
             // 
             // btnEquilibrar
             // 
-            this.btnEquilibrar.Enabled = false;
             this.btnEquilibrar.Location = new System.Drawing.Point(416, 136);
             this.btnEquilibrar.Name = "btnEquilibrar";
             this.btnEquilibrar.Size = new System.Drawing.Size(200, 36);
             this.btnEquilibrar.TabIndex = 15;
             this.btnEquilibrar.Text = "Equilibrar";
             this.btnEquilibrar.UseVisualStyleBackColor = true;
+            this.btnEquilibrar.Click += new System.EventHandler(this.btnEquilibrar_Click);
             // 
             // treeView1
             // 
@@ -277,16 +289,6 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(178, 189);
             this.treeView1.TabIndex = 16;
-            // 
-            // btnExportar
-            // 
-            this.btnExportar.Location = new System.Drawing.Point(11, 139);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(145, 36);
-            this.btnExportar.TabIndex = 17;
-            this.btnExportar.Text = "Exportar";
-            this.btnExportar.UseVisualStyleBackColor = true;
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // frmArbolBinario
             // 

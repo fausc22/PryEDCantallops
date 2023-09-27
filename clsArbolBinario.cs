@@ -12,12 +12,15 @@ namespace PryEDCantallops
     class clsArbolBinario
     {
         private clsNodo PrimerNodo;
+        
 
         public clsNodo Raiz
         {
             get { return PrimerNodo; }
             set { PrimerNodo = value; }
         }
+
+        
 
         public clsNodo BuscarCodigo(Int32 Cod)
         {
@@ -67,51 +70,26 @@ namespace PryEDCantallops
             }
         }
 
-
-        private clsNodo[] Vector = new clsNodo[100];
-        private int i;
-        public void Equilibrar()
+        public void Recorrer(ComboBox Lista)
         {
-            i = 0;
-            GrabarVectorInOrden(Raiz);
-            Raiz = null;
-            EquilibrarArbol(0, i-1);
-
+            Lista.Items.Clear();
+            InOrdenAsc(Lista, Raiz);
         }
-
-        public void Eliminar(Int32 codigo)
+        private void InOrdenAsc(ComboBox Lst, clsNodo R)
         {
-            i = 0;
-            GrabarVectorInOrden(Raiz);
-            Raiz = null;
-            EquilibrarArbol(0, i-1);
-        }
-
-
-
-        private void EquilibrarArbol(Int32 ini, Int32 fin)
-        {
-            Int32 m = (ini + fin) / 2;
-            if (ini <= fin)
+            if (R.Izquierdo != null)
             {
-                Agregar(Vector[m]);
-                EquilibrarArbol(ini, m-1);
-                EquilibrarArbol(m + 1, fin);
+                InOrdenAsc(Lst, R.Izquierdo);
+            }
+            Lst.Items.Add(R.Codigo);
+            if (R.Derecho != null)
+            {
+                InOrdenAsc(Lst, R.Derecho);
             }
         }
-        private void GrabarVectorInOrden(clsNodo NodoPadre)
-        {
-            if (NodoPadre.Izquierdo != null)
-            {
-                GrabarVectorInOrden(NodoPadre.Izquierdo);
-            }
-            Vector[i] = NodoPadre;
-            i = i + 1;
-            if (NodoPadre.Derecho != null)
-            {
-                GrabarVectorInOrden(NodoPadre.Derecho);
-            }
-        }
+
+
+
 
         private void InOrdenAsc(DataGridView dgv, clsNodo R)
         {
@@ -190,7 +168,7 @@ namespace PryEDCantallops
                         foreach (DataGridViewCell cell in row.Cells)
                         {
                             // Escribe el valor de la celda en el archivo de texto
-                            writer.Write(cell.Value.ToString() + "\t");
+                            writer.Write(cell.Value + "\t");
                         }
                         writer.WriteLine(); // Salta a la siguiente línea
                     }
@@ -225,7 +203,7 @@ namespace PryEDCantallops
                         foreach (DataGridViewCell cell in row.Cells)
                         {
                             // Escribe el valor de la celda en el archivo de texto
-                            writer.Write(cell.Value.ToString() + "\t");
+                            writer.Write(cell.Value + "\t");
                         }
                         writer.WriteLine(); // Salta a la siguiente línea
                     }
@@ -260,7 +238,7 @@ namespace PryEDCantallops
                         foreach (DataGridViewCell cell in row.Cells)
                         {
                             // Escribe el valor de la celda en el archivo de texto
-                            writer.Write(cell.Value.ToString() + "\t");
+                            writer.Write(cell.Value + "\t");
                         }
                         writer.WriteLine(); // Salta a la siguiente línea
                     }
@@ -283,6 +261,72 @@ namespace PryEDCantallops
             }
 
         }
+
+
+
+
+        private clsNodo[] Vector = new clsNodo[100];
+        private Int32 i = 0;
+        public void Equilibrar()
+        {
+            i = 0;
+            GrabarVectorInOrden(Raiz);
+            Raiz = null;
+            EquilibrarArbol(0, i - 1);
+        }
+
+        public void Eliminar(Int32 codigo)
+        {
+            i = 0;
+            GrabarVectorInOrden(Raiz, codigo);
+            Raiz = null;
+            EquilibrarArbol(0, i - 1);
+        }
+        private void EquilibrarArbol(Int32 ini , Int32 fin )
+        {
+            Int32 m = (ini + fin) / 2;
+            if (ini <= fin)
+            {
+                Agregar(Vector[m]);
+                EquilibrarArbol(ini, m - 1);
+                EquilibrarArbol(m + 1, fin);
+            }
+        }
+
+        private void GrabarVectorInOrden(clsNodo NodoPadre)
+        {
+            if (NodoPadre.Izquierdo != null)
+            {
+                GrabarVectorInOrden(NodoPadre.Izquierdo);
+            }
+            Vector[i] = NodoPadre;
+            i = i + 1;
+            if (NodoPadre.Derecho != null)
+            {
+                GrabarVectorInOrden(NodoPadre.Derecho);
+            }
+        }
+
+        private void GrabarVectorInOrden(clsNodo NodoPadre,Int32 Codigo)
+        {
+            if (NodoPadre.Izquierdo != null)
+            {
+                GrabarVectorInOrden(NodoPadre.Izquierdo, Codigo);
+            }
+            if (NodoPadre.Codigo != Codigo)
+            {
+                Vector[i] = NodoPadre;
+                i = i + 1;
+            }
+            if (NodoPadre.Derecho != null)
+            {
+                GrabarVectorInOrden(NodoPadre.Derecho, Codigo);
+            }
+        }
+
+
+
+
 
 
     }

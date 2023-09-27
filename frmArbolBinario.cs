@@ -29,6 +29,7 @@ namespace PryEDCantallops
             ObjArbol.Agregar(Persona);
             ObjArbol.RecorrerIn(dgvLista);
             ObjArbol.Recorrer(treeView1);
+            ObjArbol.Recorrer(cmbEliminar);
 
             txtCodigo.Text = "";
             txtNombre.Text = "";
@@ -87,6 +88,31 @@ namespace PryEDCantallops
                         MessageBox.Show("Seleccione una opcion de ordenamiento", "", MessageBoxButtons.OK); 
                     }
                 }
+            }
+        }
+
+        private void btnEquilibrar_Click(object sender, EventArgs e)
+        {
+            ObjArbol.Equilibrar();
+            ObjArbol.RecorrerIn(dgvLista);
+            ObjArbol.Recorrer(treeView1);
+            ObjArbol.Recorrer(cmbEliminar);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ObjArbol.Eliminar(Convert.ToInt32(cmbEliminar.Text));
+            ObjArbol.RecorrerIn(dgvLista);
+            ObjArbol.Recorrer(treeView1);
+            ObjArbol.Recorrer(cmbEliminar);
+            btnEliminar.Enabled = false;
+        }
+
+        private void cmbEliminar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEliminar.SelectedIndex != -1)
+            {
+                btnEliminar.Enabled = true;
             }
         }
     }
