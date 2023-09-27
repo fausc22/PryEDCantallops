@@ -35,6 +35,7 @@
             this.Tramite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lstLista = new System.Windows.Forms.ListBox();
             this.gpbEliminar = new System.Windows.Forms.GroupBox();
+            this.cmbEliminar = new System.Windows.Forms.ComboBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.gpbNuevo = new System.Windows.Forms.GroupBox();
@@ -45,7 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbEliminar = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gpbGrilla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
@@ -114,17 +114,27 @@
             this.gpbEliminar.Controls.Add(this.label6);
             this.gpbEliminar.Location = new System.Drawing.Point(445, 12);
             this.gpbEliminar.Name = "gpbEliminar";
-            this.gpbEliminar.Size = new System.Drawing.Size(200, 193);
+            this.gpbEliminar.Size = new System.Drawing.Size(200, 124);
             this.gpbEliminar.TabIndex = 6;
             this.gpbEliminar.TabStop = false;
             this.gpbEliminar.Text = "Elemento a eliminar";
             // 
+            // cmbEliminar
+            // 
+            this.cmbEliminar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEliminar.FormattingEnabled = true;
+            this.cmbEliminar.Location = new System.Drawing.Point(61, 28);
+            this.cmbEliminar.Name = "cmbEliminar";
+            this.cmbEliminar.Size = new System.Drawing.Size(121, 21);
+            this.cmbEliminar.TabIndex = 7;
+            this.cmbEliminar.SelectedIndexChanged += new System.EventHandler(this.cmbEliminar_SelectedIndexChanged);
+            // 
             // btnEliminar
             // 
             this.btnEliminar.Enabled = false;
-            this.btnEliminar.Location = new System.Drawing.Point(21, 130);
+            this.btnEliminar.Location = new System.Drawing.Point(9, 71);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(151, 36);
+            this.btnEliminar.Size = new System.Drawing.Size(185, 36);
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -133,7 +143,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 106);
+            this.label6.Location = new System.Drawing.Point(6, 31);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 0;
@@ -158,7 +168,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Enabled = false;
-            this.btnAgregar.Location = new System.Drawing.Point(49, 130);
+            this.btnAgregar.Location = new System.Drawing.Point(21, 133);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(151, 36);
             this.btnAgregar.TabIndex = 6;
@@ -187,6 +197,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(70, 20);
             this.txtCodigo.TabIndex = 3;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // label3
             // 
@@ -215,16 +226,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código";
             // 
-            // cmbEliminar
-            // 
-            this.cmbEliminar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEliminar.FormattingEnabled = true;
-            this.cmbEliminar.Location = new System.Drawing.Point(73, 103);
-            this.cmbEliminar.Name = "cmbEliminar";
-            this.cmbEliminar.Size = new System.Drawing.Size(121, 21);
-            this.cmbEliminar.TabIndex = 7;
-            this.cmbEliminar.SelectedIndexChanged += new System.EventHandler(this.cmbEliminar_SelectedIndexChanged);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PryEDCantallops.Properties.Resources.ListaSimple;
@@ -249,6 +250,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estructura de Datos Lineal - Lista simple";
             this.Load += new System.EventHandler(this.frmListaSimple_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmListaSimple_KeyPress);
             this.gpbGrilla.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.gpbEliminar.ResumeLayout(false);
