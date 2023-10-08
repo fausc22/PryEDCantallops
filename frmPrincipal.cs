@@ -52,5 +52,23 @@ namespace PryEDCantallops
             frmArbolBinario ab = new frmArbolBinario();
             ab.ShowDialog();
         }
+
+        private void operacionesConTablasDeBasesDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBD f = new frmBD();
+            f.Show();
+        }
+
+        private void consultasEnLaBaseDeDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsulta  a = new frmConsulta();
+            a.Show();
+        }
+
+        private void respasoDeOperacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRepaso a = new frmRepaso();
+            a.Show();
+        }
     }
 }
