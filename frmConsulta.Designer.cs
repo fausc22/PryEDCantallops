@@ -82,7 +82,8 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "frmConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmConsulta";
+            this.Text = "Consulta en SQL";
+            this.Load += new System.EventHandler(this.frmConsulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

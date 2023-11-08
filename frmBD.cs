@@ -52,7 +52,7 @@ namespace PryEDCantallops
 
         private void btnSelecSimplee_Click(object sender, EventArgs e)
         {
-            varSQL = "SELECT * FROM Libro WHERE IdAutor = 2";
+            varSQL = "SELECT * FROM Libro";
             ObjBD.Listar(dgvDatos, varSQL);
         }
 
@@ -79,6 +79,12 @@ namespace PryEDCantallops
         }
 
         private void btnProMulti_Click(object sender, EventArgs e)
+        {
+            varSQL = "SELECT TITULO, AÑO FROM LIBRO ORDER BY AÑO ASC";
+            ObjBD.Listar(dgvDatos, varSQL);
+        }
+
+        private void frmBD_Load(object sender, EventArgs e)
         {
 
         }

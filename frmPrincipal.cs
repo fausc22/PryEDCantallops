@@ -70,5 +70,10 @@ namespace PryEDCantallops
             frmRepaso a = new frmRepaso();
             a.Show();
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -50,6 +50,17 @@
             // 
             this.cmbListar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbListar.FormattingEnabled = true;
+            this.cmbListar.Items.AddRange(new object[] {
+            "Union",
+            "Diferencia",
+            "Interseccion",
+            "Proyección Simple",
+            "Proyección Multiatributo",
+            "Juntar",
+            "Selección Simple",
+            "Selección Multiatributo con operador AND",
+            "Selección Multiatributo con operador OR",
+            "Selección Multiatributo por convulsion"});
             this.cmbListar.Location = new System.Drawing.Point(295, 20);
             this.cmbListar.Name = "cmbListar";
             this.cmbListar.Size = new System.Drawing.Size(562, 21);
@@ -63,6 +74,7 @@
             this.btnListar.TabIndex = 2;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // txtListar
             // 
@@ -93,7 +105,8 @@
             this.Controls.Add(this.label1);
             this.Name = "frmRepaso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmRepaso";
+            this.Text = "Operaciones en base de Datos";
+            this.Load += new System.EventHandler(this.frmRepaso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -22,5 +22,10 @@ namespace PryEDCantallops
             clsBaseDatos objBD = new clsBaseDatos();
             objBD.Listar(dgvListar, txtListar.Text);
         }
+
+        private void frmConsulta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
